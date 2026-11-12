@@ -1,4 +1,4 @@
-# Self-Hosted Perp DEX with AI Agents
+# Self-Host Perp DEX with AI
 
 Your own trading terminal for Hyperliquid perpetuals, with an AI agent that reads the chart for you. You host it, you trade from your own account, and one [OpenFinance](https://openfinance.tech) key runs both the trading and the AI.
 

@@ -15,6 +15,8 @@ Include what you found, how to reproduce it, and what an attacker could do with 
 - Script injection through API or AI responses.
 - Order maths that could send a materially different order from the one the user confirmed.
 
-## If your key leaks
+## Keep your key private
 
-Revoke it on [openfinance.tech](https://openfinance.tech) right away and create a new one. Never post a key in an issue, a pull request, a screenshot or a chat.
+Please don't share your key with anyone. This app is built for personal use only.
+
+Treat your key like a password or a private key.
