@@ -54,17 +54,21 @@ Your own trading terminal for Hyperliquid perpetuals, with an AI agent that read
 |---|---|---|---|---|
 | **[Deploy on OpenFinance](#deploy-on-openfinance)** | You don't code and want to change it by chatting | None | A few minutes | Build uses AI credits |
 | **[Deploy with Vercel](#deploy-with-vercel)** | You want this exact code live now | None | About 1 minute | Free |
-| **[Run locally](#run-locally)** | You want to read or change the code | Node 20+ | 2 minutes | Free |
-| **[Other hosts](#other-hosts)** | You don't use Vercel | Yes | Varies | Free |
+| **[Run on your computer](#run-on-your-computer)** | You want to try it or change the code | Node 20+ | 2 minutes | Free |
+| **[Host it yourself](#host-it-yourself)** | You want it always on, on your own machine or server | Node 20+ | 5 minutes | Free |
 
 ### Deploy on OpenFinance
 
-1. Open [openfinance.tech/mainframe](https://openfinance.tech/mainframe) and connect Vercel and GitHub once.
-2. Press **Deploy** on the "AI assisted Perps dex" card.
-3. The AI builds it with a live preview and ships it to your own Vercel and GitHub.
+<a href="https://openfinance.tech/mainframe"><img src="docs/images/deploy-on-openfinance.png" alt="Deploy on OpenFinance" height="32" /></a>
+
+No code at all. OpenFinance builds the app for you and ships it to your own Vercel and GitHub.
+
+1. Open [openfinance.tech/mainframe](https://openfinance.tech/mainframe) and connect **Vercel** and **GitHub** once.
+2. Press **Deploy** on the **AI assisted Perps dex** card.
+3. Watch it build in a live preview. When it's done, it ships.
 
 > [!TIP]
-> Keep chatting to change it: "Open on ETH 4h instead of BTC 1h" or "Add limit orders to the ticket".
+> Keep chatting to change it: *"Open on ETH 4h instead of BTC 1h"* or *"Add limit orders to the ticket"*.
 
 <details>
 <summary>What Mainframe looks like</summary>
@@ -77,22 +81,48 @@ Your own trading terminal for Hyperliquid perpetuals, with an AI agent that read
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Frc-dran%2Fself-hosted-perp-dex&project-name=self-hosted-perp-dex&repository-name=self-hosted-perp-dex)
 
-There are no environment variables to set.
+This repo's exact code, live in about a minute. There are no environment variables to set.
 
-### Run locally
+### Run on your computer
+
+Clone the repo:
 
 ```bash
 git clone https://github.com/rc-dran/self-hosted-perp-dex.git
+```
+
+Install and start it:
+
+```bash
 cd self-hosted-perp-dex
 npm install
 npm run dev
 ```
 
+Then open [http://localhost:3143](http://localhost:3143). You need [Node.js](https://nodejs.org) 20 or newer.
+
 The chart and Jarvis's built-in mode work without a key. Market data comes straight from Hyperliquid, so your network must reach `api.hyperliquid.xyz`.
 
-### Other hosts
+### Host it yourself
 
-The front end is a static build that runs anywhere. Port the ~40-line edge function `api/of.ts` to your host's function format and keep `api/_allow.ts` as it is.
+To keep it running on your own computer or a server, build it once and serve it:
+
+```bash
+npm start
+```
+
+This builds the app and serves it at `http://localhost:3143`, with the same protected `/api/of` route as the Vercel version.
+
+To open it from your phone or another device on the same network:
+
+```bash
+npm start -- --host
+```
+
+> [!WARNING]
+> Your key travels with every request. If you open it to the internet, put it behind HTTPS (for example Caddy or a Cloudflare Tunnel) and keep it to yourself.
+
+Using Netlify, Cloudflare Pages or another host? The front end is a static build that runs anywhere. Port the ~40-line edge function `api/of.ts` to your host's function format, and keep `api/_allow.ts` exactly as it is.
 
 ---
 

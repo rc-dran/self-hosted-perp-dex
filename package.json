@@ -19,7 +19,8 @@
   "scripts": {
     "dev": "NODE_OPTIONS=--max-old-space-size=3072 vite --port 3143 --strictPort",
     "build": "vite build",
-    "preview": "vite preview --port 3143"
+    "preview": "vite preview --port 3143",
+    "start": "vite build && vite preview --port 3143"
   },
   "dependencies": {
     "@vercel/analytics": "^2.0.1",
