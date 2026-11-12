@@ -43,7 +43,7 @@ export function TopBar({
     <div className="topbar">
       <div className="brand">
         <span className="brand-orb">◈</span>
-        <span className="brand-name">Self-Host Perp DEX with AI</span>
+        <span className="brand-name">Self-Hosted Perp DEX with AI Agents</span>
         <span className="beta-chip">BETA</span>
       </div>
       <nav className="view-tabs" role="tablist" aria-label="Page">

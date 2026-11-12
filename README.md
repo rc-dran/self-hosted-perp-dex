@@ -1,6 +1,8 @@
-# Self-Host Perp DEX with AI
+# Self-Hosted Perp DEX with AI Agents
 
 Your own trading terminal for Hyperliquid perpetuals, with an AI agent that reads the chart for you. You host it, you trade from your own account, and one [OpenFinance](https://openfinance.tech) key runs both the trading and the AI.
+
+**▶ [Try the live demo](https://emporia-indicator.vercel.app)**: the chart, indicators and Jarvis, with no key and no sign-up. The demo is analysis only and never places orders.
 
 <img width="100%" alt="The terminal: BTC chart with indicators, Jarvis the AI agent, and the trade ticket" src="docs/images/terminal.png" />
 
@@ -12,6 +14,8 @@ Your own trading terminal for Hyperliquid perpetuals, with an AI agent that read
 [![Twitter Follow](https://img.shields.io/twitter/follow/rlclbu?style=social)](https://x.com/rlclbu)
 [![Twitter Follow](https://img.shields.io/twitter/follow/openfinancelabs?style=social)](https://x.com/openfinancelabs)
 
+**Guides:** [Setup guide](https://openfinance.tech/agents/self-hosted-perp-dex) · [OpenFinance MCP](https://openfinance.tech/mcp-server) · [TradingView MCP + execution](https://openfinance.tech/agents/tradingview-mcp) · [Docs](https://docs.openfinance.tech)
+
 ---
 
 ## What you get
@@ -21,7 +25,7 @@ Your own trading terminal for Hyperliquid perpetuals, with an AI agent that read
 - **Chart:** 300+ markets (crypto, US stocks, indices, commodities, FX), every timeframe from 1 minute to 1 month, and 5 indicators you toggle on and off.
 - **Jarvis, the AI agent:** ask "Should I trade?" and get a verdict with entry, stop loss, target and the reasons. A free built-in engine, or 8 models from Anthropic, OpenAI, Google, xAI and DeepSeek.
 - **Trade ticket:** market orders with leverage, TP/SL, a liquidation estimate and a confirm step.
-- **Account:** positions, balances, open orders and history, with close and cancel buttons.
+- **Account:** positions, balances, open orders and recent trades, with close and cancel buttons.
 
 <table>
   <tr>
@@ -174,7 +178,7 @@ Everything else gets a 404. See [`api/_allow.ts`](api/_allow.ts).
 | RSI + divergences | RSI(14) with BULL and BEAR divergence tags between swing pivots |
 | MACD | MACD(12, 26, 9) with histogram and crossovers |
 | Fibonacci | Auto-anchored to the biggest recent swing; the 0.618 to 0.65 golden pocket in gold |
-| Buy / sell zones | Nearest untested swing pivots, sized by ATR |
+| Buy / sell zones | Nearest swing pivots above and below the price, sized by ATR |
 
 </details>
 
@@ -185,7 +189,7 @@ Everything else gets a 404. See [`api/_allow.ts`](api/_allow.ts).
 |---|---|---|
 | Claude Haiku 5.5 (default) | Quick everyday reads | $ |
 | GPT-5.6 Luna | Short, to the point | $ |
-| DeepSeek V4.1 Flash | Cheapest, long explanations | $ |
+| DeepSeek V4.1 Flash | Long explanations at the low end of the credit range | $ |
 | Gemini 3.8 Flash | Fast with some thinking | $$ |
 | Grok 4.7 | Blunt takes | $$ |
 | Claude Sonnet 5.5 | Sharper trade plans | $$$ |
@@ -221,6 +225,20 @@ src/lib/            hyperliquid, indicators, zones, jarvis, llm, openfin, ofkey
 ```
 
 </details>
+
+---
+
+## FAQ
+
+**Does the AI place trades?** No. Jarvis only advises. Orders come from you: the ticket after you confirm, or a position's Close button after two clicks.
+
+**Can this app withdraw my funds?** No. The proxy allows a short route list and withdrawals are not on it. See [`api/_allow.ts`](api/_allow.ts). The key itself can withdraw, so only paste it into a copy you deployed.
+
+**Do I need to code?** No. Use Deploy with Vercel, or Deploy on OpenFinance.
+
+**What does a trade cost?** OpenFinance 2.5 basis points (0.025%) per Hyperliquid trade, plus Hyperliquid's own fees.
+
+**Can I trade options here?** No. Options stay in the OpenFinance app, through your own IBKR or Robinhood account.
 
 ---
 

@@ -251,7 +251,7 @@ export function HowItWorks({ onOpenTerminal }: { onOpenTerminal: () => void }) {
       <div className="hiw-inner">
         <header className="hiw-hero">
           <div className="hiw-eyebrow">Guide</div>
-          <h1>How your Self-Host Perp DEX with AI works</h1>
+          <h1>How your Self-Hosted Perp DEX with AI Agents works</h1>
           <p>
             Your own trading station on Hyperliquid, with an AI that reads your chart and the tools to plan every trade
             before you place it.
