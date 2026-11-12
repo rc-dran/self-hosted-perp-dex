@@ -1,0 +1,38 @@
+{
+  "name": "self-hosted-perp-dex",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Open-source Hyperliquid perpetuals trading terminal with an AI copilot. One OpenFinance key for trading and AI.",
+  "license": "MIT",
+  "homepage": "https://openfinance.tech/mainframe",
+  "keywords": [
+    "hyperliquid",
+    "perpetuals",
+    "trading-terminal",
+    "ai-trading",
+    "openfinance",
+    "dex",
+    "hip-3",
+    "tradingview"
+  ],
+  "type": "module",
+  "scripts": {
+    "dev": "NODE_OPTIONS=--max-old-space-size=3072 vite --port 3143 --strictPort",
+    "build": "vite build",
+    "preview": "vite preview --port 3143"
+  },
+  "dependencies": {
+    "@vercel/analytics": "^2.0.1",
+    "lightweight-charts": "^5.0.8",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.1.0",
+    "@types/react": "^19.1.0",
+    "@types/react-dom": "^19.1.0",
+    "@vitejs/plugin-react": "^4.5.0",
+    "typescript": "^5.8.0",
+    "vite": "^6.3.5"
+  }
+}
